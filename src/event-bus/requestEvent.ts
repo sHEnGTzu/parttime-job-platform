@@ -30,13 +30,13 @@ export function useRequestEventBus() {
 
       case 'response':
         if (event.data.code === 201) {
-          messageApi.success(event.data.message)
+          messageApi.success(event.data.msg)
         }
 
         break
 
       case 'responseError':
-        messageApi.error(`${event.error.response?.data?.message || event.error.message}`)
+        messageApi.error(`${event.error.response?.data?.msg || event.error.message}`)
         if (event.code === 401) {
           cleanup(currentPath)
         }

@@ -1,6 +1,6 @@
 declare interface ResponseBody<T = unknown> {
   code: number
-  message: string
+  msg: string
   data: T
 }
 

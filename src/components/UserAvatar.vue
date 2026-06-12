@@ -7,7 +7,8 @@ type LoadState = 'success' | 'error' | 'loading'
 
 const userStore = useUserStore()
 
-const avatarUrl = computed(() => userStore.user.avatar)
+const avatarUrl = computed(() => userStore.user?.avatar || '')
+const userName = computed(() => userStore.user?.name || '')
 
 const loadState = ref<LoadState>('loading')
 

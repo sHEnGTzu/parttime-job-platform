@@ -39,6 +39,7 @@ watch(
         size: 'medium',
         trigger: 'click',
       }"
+      @update:value="(key: string) => router.push({ name: key })"
     />
   </NScrollbar>
 </template>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useMessage, NDropdown } from 'naive-ui'
+import { NDropdown } from 'naive-ui'
 import { h } from 'vue'
 
+import router from '@/router'
 import { useUserStore } from '@/stores'
 
 import type { DropdownProps } from 'naive-ui'
@@ -15,8 +16,6 @@ defineOptions({
 })
 
 const { cleanup } = useUserStore()
-
-const message = useMessage()
 
 const userDropdownOptions = [
   {
@@ -34,7 +33,7 @@ const userDropdownOptions = [
 const onUserDropdownSelected = (key: string) => {
   switch (key) {
     case 'user':
-      message.info('点击了个人中心')
+      router.push({ name: 'profile' })
       break
     case 'signOut':
       cleanup()
